@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //for update functions
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 // READ
 app.get('/', (req, res) => {
@@ -45,10 +45,7 @@ app.get('/home', (req, res) => {
 	})
 })
 
-app.get('/update', (req, res) => {
-	//display the index.html form page
-	res.render( 'update.html');
-})
+
 
 // CREATE
 app.post('/names', (req, res) => {
@@ -60,21 +57,24 @@ app.post('/names', (req, res) => {
 	})
 })
 
-// UPDATE
-app.put('/names', (req, res) => {
-  // Handle put request
+app.route('/update') 
+	.get((req, res) => {
+		//display the index.html form page
+		res.render( 'update.html');
+	})
+	// UPDATE
+	.post((req, res) => {
+	  db.collection('names')
+	  .findOneAndUpdate({firstName: oldFirstName}, {
+	    $set: {
+	      firstName: newFirstName,
+	      lastName: newLastName
+	    }
+	  }, {
+	    sort: {_id: -1},
+	    upsert: true
+	  }, (err, result) => {
+	    res.send(result)
 
-  db.collection('names')
-  .findOneAndUpdate({firstName: req.body.oldFirstName}, {
-    $set: {
-      firstName: req.body.newFirstName,
-      lastName: req.body.newLastName
-    }
-  }, {
-    sort: {_id: -1}, //Sort from last most recent input
-    upsert: true // If nothing exists upsert information
-  }, (err, result) => {
-    if (err) return res.send(err)
-    res.send(result)
-  })
-})
+	  })
+	})

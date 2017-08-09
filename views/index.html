@@ -14,10 +14,20 @@
 <body>
   May Node and Express be with you.
 
+  New Name
   <form action="/names" method="POST">
   	<input type="text" placeholder="First Name" name="firstName">
   	<input type="text" placeholder="Last Name" name="lastName">
   	<button type="submit">Submit</button>
+  </form>
+
+
+  Update Name
+  <form action="/update" method="POST">
+  <input type="text" placeholder="Current First Name" name="oldFirstName">
+    <input type="text" placeholder="New First Name" name="newFirstName">
+    <input type="text" placeholder="New Last Name" name="newLastName">
+    <button id="update">Update</button>
   </form>
 </body>
 
