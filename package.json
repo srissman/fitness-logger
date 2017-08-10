@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,13 @@
   "homepage": "https://github.com/srissman/fitness-logger#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
-    "mongodb": "^2.2.30",
-    "nunjucks": "^3.0.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.6",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
   }
 }
