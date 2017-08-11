@@ -2,10 +2,10 @@
   "name": "fitness-logger",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -18,14 +18,21 @@
   },
   "homepage": "https://github.com/srissman/fitness-logger#readme",
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "jade": "~1.11.0",
-    "method-override": "^2.3.9",
-    "mongoose": "^4.11.6",
-    "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "bcrypt-nodejs": "latest",
+    "body-parser": "~1.0.0",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.0.0",
+    "ejs": "~0.8.5",
+    "express": "~4.0.0",
+    "express-session": "~1.0.0",
+    "method-override": "~1.0.0",
+    "mongoose": "latest",
+    "morgan": "~1.0.0",
+    "nodemon": "^1.11.0",
+    "passport": "~0.1.17",
+    "passport-facebook": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "passport-local": "~0.1.6",
+    "passport-twitter": "~1.0.2"
   }
 }
