@@ -61,6 +61,17 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+
+    // =====================================
+    // ADD FITNESS DATA ====================
+    // =====================================
+
+    app.get('/addtest', isLoggedIn, function(req, res) {
+        res.render('tests.ejs', {
+            user : req.user // get the user out of the session and pass to the template
+        })
+    })
 };
 
 // route middleware to make sure a user is logged in
