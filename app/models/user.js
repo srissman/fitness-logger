@@ -1,4 +1,4 @@
-// app/models/user.js
+// app/models/fitnessData.js
 // load the things we need
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
@@ -19,7 +19,8 @@ var userSchema = mongoose.Schema({
     	age		 : Number,
     	semester : String,
     	testOne	 : String,
-    	testTwo	 : Number
+    	testTwo	 : Number,
+    	testThree: String
     }
 
 });

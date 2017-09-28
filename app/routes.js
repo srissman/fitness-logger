@@ -49,8 +49,10 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
+        var data = require('./models/userLog.js');
         res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user, // get the user out of session and pass to template
+            data : data.getData(req.user.id)
         });
     });
 
@@ -68,6 +70,14 @@ module.exports = function(app, passport) {
     // =====================================
 
     app.get('/addtest', isLoggedIn, function(req, res) {
+        res.render('tests.ejs', {
+            user : req.user // get the user out of the session and pass to the template
+        })
+    })
+
+    app.post('/addtest', isLoggedIn, function(req, res) {
+        var addtest  = require('./models/addTest.js');
+        addtest.addInformation(req.body);
         res.render('tests.ejs', {
             user : req.user // get the user out of the session and pass to the template
         })

@@ -1,0 +1,67 @@
+<!-- views/tests.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Enter Test Record</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span>Tests</h1>
+
+    <!-- show any messages that come back with authentication -->
+    
+
+    <!-- TEST FORM -->
+    <form action="/addtest" method="post">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group">
+          <label for="sel1">Semester:</label>
+          <select class="form-control" id="semester" name="semester">
+            <option>2017 Semester 2</option>
+            <option>2018 Semester 1</option>
+            <option>2018 Semester 2</option>
+            <option>2019 Semester 1</option>
+            <option>2019 Semester 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>Test 1</label>
+            <input type="text" class="form-control" name="test1">
+        </div>
+        <div class="form-group">
+            <label>Test 2</label>
+            <input type="text" class="form-control" name="test2">
+        </div>
+        <div class="form-group">
+            <label>Test 3</label>
+            <input type="text" class="form-control" name="test3">
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="hidden" name="id" value="<%= user._id %>">
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg">Enter Records</button>
+    </form>
+
+    <hr>
+
+    <p>Need an account? <a href="/signup">Signup</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>
