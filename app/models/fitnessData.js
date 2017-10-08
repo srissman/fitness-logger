@@ -17,6 +17,17 @@ var fitnessDataSchema = mongoose.Schema({
 
 // methods ======================
 
+exports.getAllTasks = function(callback){
+        Task.find().exec(function (err, docs) {
+
+        // If there is an error, return the error and no results
+        if(err) return callback(err, null)
+
+       // No error, return the docs
+        callback(null, docs)
+    });
+}
+
 // create the model for fitnessData and expose it to our app
-module.exports = mongoose.model('FitnessData', fitnessDataSchema);
+module.exports = mongoose.model('FitnessData', fitnessDataSchema, 'fitnessdata');
 
