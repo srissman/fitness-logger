@@ -1,6 +1,6 @@
 // app/models/user.js
 // load the things we need
-var mongoose = require('mongoose');
+var mongoose = require('mongoose').set('debug', true);;
 
 // define the schema for our user model
 var fitnessDataSchema = mongoose.Schema({
@@ -17,15 +17,19 @@ var fitnessDataSchema = mongoose.Schema({
 
 // methods ======================
 
-exports.getAllTasks = function(callback){
-        Task.find().exec(function (err, docs) {
+exports.getOneData = function(id) {
+    var query = fitnessData.findOne({ 'userId': id }).exec();
+  return query;
+}
 
-        // If there is an error, return the error and no results
-        if(err) return callback(err, null)
+exports.getAllUserData = function(id) {
+    var query = fitnessData.find({ 'userId': id }).exec();
+  return query;
+}
 
-       // No error, return the docs
-        callback(null, docs)
-    });
+exports.getAllData = function(id) {
+    var query = fitnessData.find().exec();
+  return query;
 }
 
 // create the model for fitnessData and expose it to our app

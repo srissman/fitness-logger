@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
+        res.render('./layouts/index.handlebars'); // load the index.handlebars file
     });
 
     // =====================================
@@ -16,7 +16,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+        res.render('./layouts/login.handlebars', { message: req.flash('loginMessage') }); 
     });
 
     // process the login form
@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
     app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
+        res.render('./layouts/signup.handlebars', { message: req.flash('signupMessage') });
     });
 
     // process the signup form
@@ -50,11 +50,20 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
         var UserLogs = require('./models/userLog.js');
-        var Logs = UserLogs.getData(req.user._id);
-        console.log(Logs);
-        res.render('profile.ejs', {
+        
+        var testLogs = UserLogs.getData(req.user._id);
+        
+        testLogs.then(function(tests) {
+            userTests = [];
+            tests.forEach(function(test){
+                userTests.push(test.fitnessData);
+            });
+
+            console.log(userTests);
+            res.render('./layouts/profile.handlebars', {
             user : req.user, // get the user out of session and pass to template
-            TestLog : Logs
+            TestLog : userTests
+            });
         });
     });
 
@@ -72,7 +81,7 @@ module.exports = function(app, passport) {
     // =====================================
 
     app.get('/addtest', isLoggedIn, function(req, res) {
-        res.render('tests.ejs', {
+        res.render('./layouts/tests.handlebars', {
             user : req.user // get the user out of the session and pass to the template
         })
     })
@@ -80,7 +89,7 @@ module.exports = function(app, passport) {
     app.post('/addtest', isLoggedIn, function(req, res) {
         var addtest  = require('./models/addTest.js');
         addtest.addInformation(req.body);
-        res.render('tests.ejs', {
+        res.render('./layouts/tests.handlebars', {
             user : req.user // get the user out of the session and pass to the template
         })
     })

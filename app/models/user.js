@@ -11,18 +11,12 @@ var userSchema = mongoose.Schema({
         username     : {type: String, required: true},
         password     : String
     },
+    firstName  : String,
+    lastName   : String,
     createdAt	 : Date,
     updatedAt	 : Date,
     lastLoggedIn : Date,
-    admin		 : Boolean,
-    fitnessData  : {
-    	age		 : Number,
-    	semester : String,
-    	testOne	 : String,
-    	testTwo	 : Number,
-    	testThree: String
-    }
-
+    admin		 : Boolean
 });
 
 // methods ======================

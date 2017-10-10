@@ -1,0 +1,53 @@
+
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-12">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> User</h3>
+
+                    <p>
+                        {{user.local.username}}
+                    </p>
+                    <p>
+                        {{user.firstName}}
+                    </p>
+                    <p>
+                        {{user.lastName}}
+                    </p>
+
+            </div>
+        </div>
+        
+        
+        <div class="col-sm-12">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> DATA</h3>
+                    {{#if TestLog}}        
+                   
+                        {{#each TestLog}}
+                        <p>
+                        <strong>Semester</strong>: {{semester}}<br />
+                        <strong>Test 1</strong>: {{testOne}}<br />
+                        <strong>Test 2</strong>: {{testTwo}}<br />
+                        <strong>Test 2</strong>: {{testThree}}<br />
+                        </p>
+                        {{/each}}
+                    {{else}}
+                        <p> No Logs</p>
+                    {{/if}}
+            </div>
+        </div>
+        
+
+    </div>
+
+</div>
+
