@@ -3,6 +3,7 @@
 // set up ======================================================================
 // get all the tools we need
 var express  = require('express');
+var path 	 = require('path');
 var app      = express();
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -27,7 +28,7 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
-
+app.use(express.static(path.join(__dirname, 'src')));
 app.engine('handlebars', exphbs({defaultLayout: 'template'}));
 app.set('view engine', 'handlebars');
 

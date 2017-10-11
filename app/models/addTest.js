@@ -7,7 +7,7 @@ exports.validateInputs = function() {
 
 }
 
-exports.addInformation = function(information) {
+exports.addInformation = function(information, req) {
 	console.log(information);
 	User.findById(information.id, function(err, data) {
             if (err) {
@@ -20,6 +20,7 @@ exports.addInformation = function(information) {
             	var newData = new fitnessData();
 
             	newData.userId = information.id;
+                newData.name = information.name;
             	newData.createdOn = Date.now();
             	newData.fitnessData.semester = information.semester;
             	newData.fitnessData.testOne = information.test1;
