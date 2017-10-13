@@ -6,7 +6,12 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('./layouts/index.handlebars'); // load the index.handlebars file
+        var loggedIn = req.isAuthenticated();
+        if (loggedIn) {
+            res.redirect('/profile');
+        } else {
+            res.render('./layouts/index.handlebars', {loggedIn : loggedIn}); // load the index.handlebars file
+        }
     });
 
     // =====================================
@@ -50,7 +55,7 @@ module.exports = function(app, passport) {
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
         var UserLogs = require('./models/queries.js');
-        
+        var loggedIn = req.isAuthenticated();
         var testLogs = UserLogs.getData(req.user._id);
         
         testLogs.then(function(tests) {
@@ -64,7 +69,8 @@ module.exports = function(app, passport) {
 
             res.render('./layouts/profile.handlebars', {
                 user : req.user, // get the user out of session and pass to template
-                TestLog : userTests
+                TestLog : userTests,
+                loggedIn : loggedIn
             });
         });
     });
@@ -83,8 +89,10 @@ module.exports = function(app, passport) {
     // =====================================
 
     app.get('/addtest', isLoggedIn, function(req, res) {
+        var loggedIn = req.isAuthenticated();
         res.render('./layouts/tests.handlebars', {
-            user : req.user // get the user out of the session and pass to the template
+            user : req.user, // get the user out of the session and pass to the template
+            loggedIn : loggedIn
         })
     })
 
@@ -101,6 +109,7 @@ module.exports = function(app, passport) {
     // ADMIN ====================
     // =====================================
     app.get('/admin', isLoggedIn, isAdmin, function(req, res) {
+        var loggedIn = req.isAuthenticated();
         var userLogs = require('./models/queries.js');
         
         var allLogs = userLogs.getAllData();
@@ -116,7 +125,8 @@ module.exports = function(app, passport) {
 
             res.render('./layouts/admin.handlebars', {
                 user : req.user, // get the user out of session and pass to template
-                TestLog : userTests
+                TestLog : userTests,
+                loggedIn : loggedIn
             });
         });
     });

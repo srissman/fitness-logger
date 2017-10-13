@@ -1,7 +1,7 @@
 //Colors
 $primary: #A9A9A9;
-$background: #efefef;
-
+$background-grey: #b5b5b7;
+$background-blue: #252839;
 $highlight-blue: #CAEBF2;
 $highlight-red: #FF3B3F;
 $highlight-orange: #f0ad4e;
@@ -31,5 +31,8 @@ $row-inner-width: rem-calc(1200);
 $row-width: $row-inner-width + $column-gutter;
 
 body {
-	background: $background;
+	background: $background-blue;
+	color: #ffffff;
 }
+
+

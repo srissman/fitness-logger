@@ -6,6 +6,7 @@ var express  = require('express');
 var path 	 = require('path');
 var app      = express();
 require('dotenv').config();
+var browserSync = require('browser-sync');
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -24,6 +25,9 @@ mongoose.connect(configDB.url, {
 }); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
+
+// you can conditionally add routes and behaviour based on environment
+const isProduction = 'production' === process.env.NODE_ENV;
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
@@ -48,7 +52,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'template'}));
 app.set('view engine', 'handlebars');
 
 // required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: process.env.client_secret })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -57,6 +61,20 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
-app.listen(port);
-console.log('The magic happens on port ' + port);
+app.listen(port, listening);
+
+function listening () {
+    console.log(`Demo server available on http://localhost:${port}`);
+    if(!isProduction) {
+        // https://ponyfoo.com/articles/a-browsersync-primer#inside-a-node-application
+        browserSync({
+            files: ['/src/**/*.scss', '/views/*.handlebars', '/dist/**/*.css'],
+            online: false,
+            open: false,
+            port: port + 1,
+            proxy: 'localhost:' + port,
+            ui: false
+        });
+    }
+}
 

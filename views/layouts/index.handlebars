@@ -2,10 +2,74 @@
     	<div class="heading--area">
         	<div class="heading"><h1>Welcome</h1></div>
     	</div>
+		
+		<div class="content--area">
+	 
+	        <div id="login" class="btn btn-default login-btn">Login</div>
+	        <div id="signup" class="btn btn-default signin-btn">Signup</div>
+    	</div>
 
-        <p>Login or Register with:</p>
+    	<div id="login-form" class="login-form">
+    		<div class="col-sm-6 col-sm-offset-3">
 
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+			    <h1>Login</h1>
+
+			    <!-- show any messages that come back with authentication -->
+			        {{#if message}}
+			        <div class="alert alert-danger">{{ message }}</div>
+			        {{/if}}
+
+			    <!-- LOGIN FORM -->
+			    <form action="/login" method="post">
+			        <div class="form-group">
+			            <label>Email</label>
+			            <input type="text" class="form-control" name="email">
+			        </div>
+			        <div class="form-group">
+			            <label>Password</label>
+			            <input type="password" class="form-control" name="password">
+			        </div>
+
+			        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+			    </form>
+			</div>
+    	</div>
+    	<div id="signup-form" class="signup-form">
+    		<div class="col-sm-6 col-sm-offset-3">
+
+			    <h1>Signup</h1>
+
+			    <!-- show any messages that come back with authentication -->
+			    {{#if message}}
+			        <div class="alert alert-danger">{{message}}</div>
+			    {{/if}}
+
+			    <!-- LOGIN FORM -->
+			    <form action="/signup" method="post">
+			        <div class="form-group">
+			            <label>UserName</label>
+			            <input type="text" class="form-control" name="userName">
+			        </div>
+			         <div class="form-group">
+			            <label>First Name</label>
+			            <input type="text" class="form-control" name="firstName">
+			        </div>
+			         <div class="form-group">
+			            <label>Last Name</label>
+			            <input type="text" class="form-control" name="lastName">
+			        </div>
+			        <div class="form-group">
+			            <label>Email</label>
+			            <input type="text" class="form-control" name="email">
+			        </div>
+			        <div class="form-group">
+			            <label>Password</label>
+			            <input type="password" class="form-control" name="password">
+			        </div>
+
+			        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+			    </form>
+		</div>
+    	</div>
     </div>
 

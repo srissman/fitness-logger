@@ -1,5 +1,4 @@
 .heading--area {
-	background: #ffffff;
 	height: 100px;
 	width: 100%;
 	position: relative;
@@ -10,4 +9,12 @@
 		  top: 50%;
 		  transform: translate(-50%,-50%);
 	}
+}
+
+.content--area {
+	padding-top:20px;
+}
+
+.login-form, .signup-form {
+	display:none;
 }
