@@ -1,17 +1,15 @@
 <!-- views/index.handlebars -->
 
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center jumbotron-blue">
         <h1><span class="fa fa-lock"></span> ADMIN</h1>
     </div>
 
     <div class="col-sm-12">
-            <div class="well">
                 <h3>All Data</h3>
                     {{#if TestLog}}        
                    
                         {{#each TestLog}}
-                        <div class="well">
                         <h4>{{name}}</h4>
                         <p>
                         <strong>Semester</strong>: {{fitnessData.semester}}<br />
@@ -19,11 +17,9 @@
                         <strong>Test 2</strong>: {{fitnessData.testTwo}}<br />
                         <strong>Test 2</strong>: {{fitnessData.testThree}}<br />
                         </p>
-                    </div>
                         {{/each}}
                     {{else}}
                         <p> No Logs</p>
                     {{/if}}
-            </div>
         </div>
 

@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous">
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<script
+	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous">
 	</script>
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="main-container">
-		 <div class="col-sm-3 menu--sidebar">
-		 	<div class="logo"><img src="/images/logo.png" ></div>
-		 	<div class="menu">
-		 	{{#if loggedIn}}
-		 		<a href="/profile"><div class="menu--item"><h3>Profile</h3></div></a>
-		 		<a href="/addtest"><div class="menu--item"><h3>Add Test</h3></div></a>
-		 		<a href="/logout"><div class="menu--item"><h3>Logout</h3></div></a>
-		 	{{/if}}
-		 	</div>
-		 </div>
-		 <div class="col-sm-9">
-		    {{{body}}}
-		 </div>
-	</div> 
+	<div class="main-container--menu"> 
+		<div class="fliud-container header-container">
+			<div class="row">
+				<div class="col-sm-12 col-md-3 logo">
+					<a href="/">
+						<img src="/images/logo.png" >
+					</a>
+				</div>
+				<div class="col-sm-12 col-md-6 menu--container ">
+					{{#if loggedIn}}
+					<a href="/addtest"><div class="menu--item"><h3>Add Test</h3></div></a>
+					<a href="/viewtest"><div class="menu--item"><h3>View Tests</h3></div></a>
+					{{/if}}
+				</div>
+				<div class="col-sm-12 col-md-3 profile">
+						<a href="/profile">
+							<div class="menu--item">
+								<span class="fa fa-user fa-3x"></span>
+							</div>
+						</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-container--content"> 
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					{{{body}}}
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 <script src="/js/form-toggle.js"></script>
 </html>

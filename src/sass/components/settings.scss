@@ -10,12 +10,12 @@ $highlight-orange: #f0ad4e;
 //Fonts
 // WARNING - don't use these variables, use the mixins in the partials/mixin.scss file as they
 // properly handle letter spacing.
-$light-font:  'Avenir Light',  'Hevetica Neue', Helvetica, Arial, sans-serif;
-$book-font:   'Avenir Book',   'Hevetica Neue', Helvetica, Arial, sans-serif;
-$base-font:  'Avenir Roman',  'Hevetica Neue', Helvetica, Arial, sans-serif;
-$medium-font: 'Avenir Medium', 'Hevetica Neue', Helvetica, Arial, sans-serif;
-$heavy-font:  'Avenir Heavy',  'Hevetica Neue', Helvetica, Arial, sans-serif;
-$black-font:  'Avenir Black',  'Hevetica Neue', Helvetica, Arial, sans-serif;
+$light-font:   'Hevetica Neue', Helvetica, Arial, sans-serif;
+$book-font:    'Hevetica Neue', Helvetica, Arial, sans-serif;
+$base-font:  'Hevetica Neue', Helvetica, Arial, sans-serif;
+$medium-font: 'Hevetica Neue', Helvetica, Arial, sans-serif;
+$heavy-font:  'Hevetica Neue', Helvetica, Arial, sans-serif;
+$black-font:  'Hevetica Neue', Helvetica, Arial, sans-serif;
 
 $light-italic-font:  'Avenir Light Oblique',  'Hevetica Neue', Helvetica, Arial, sans-serif;
 $book-italic-font:   'Avenir Book Oblique',   'Hevetica Neue', Helvetica, Arial, sans-serif;
@@ -33,6 +33,10 @@ $row-width: $row-inner-width + $column-gutter;
 body {
 	background: $background-blue;
 	color: #ffffff;
+}
+
+.well {
+	background: #333333;
 }
 
 
