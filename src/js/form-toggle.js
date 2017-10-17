@@ -1,7 +1,7 @@
 $( "#login" ).click(function() {
 	if ($( "#login-form" ).is( ":hidden" )) {
 		if ($( "#signup-form" ).not( ":hidden" )) {
-
+		$this.className += " " + activeForm;
     	$( "#signup-form" ).hide();
 
 		$( "#login-form" ).slideDown( "slow", function() {

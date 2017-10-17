@@ -1,20 +1,45 @@
-.heading--area {
-	height: 100px;
-	width: 100%;
-	position: relative;
+// .heading--area {
+// 	height: 100px;
+// 	width: 100%;
+// 	position: relative;
 
-	& .heading {
-		position: relative;
-		  left: 50%;
-		  top: 50%;
-		  transform: translate(-50%,-50%);
-	}
-}
+// 	& .heading {
+// 		position: relative;
+// 		  left: 50%;
+// 		  top: 50%;
+// 		  transform: translate(-50%,-50%);
+// 	}
+// }
 
 .content--area {
 	padding-top:20px;
+
+	& a {
+		display:inline-block;
+		margin-right: 20px;
+		color: #ffffff;
+		text-decoration: none;
+
+		&:hover {
+			color: $btn-orange;
+		}
+
+	}
 }
+
+.activeForm {
+			color: #ffffff;
+			border-bottom: 1px solid $btn-orange;
+		}
 
 .login-form, .signup-form {
 	display:none;
+}
+
+.mainImage {
+	& img {
+		max-width: 500px;
+		height: auto;
+		width: 100%;
+	}
 }

@@ -1,15 +1,24 @@
 
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1>Profile Page</h1>
     </div>
 
     <div class="row">
         
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-12">
+        <div class="col-sm-4">
             <div class="well">
+                <div class="userImage">
+                    <img src="/images/user_placeholder.png" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8">
+            <div class="well userContainer">
+                <div class="userInformation">
                 <h3><span class="fa fa-user"></span> User</h3>
 
                     <p>
@@ -22,10 +31,20 @@
                         {{user.lastName}}
                     </p>
 
+                    <p>
+                        {{user.yearLevel}}
+                    </p>
+                </div>
+                <div class="userUpdate">
+                    <button type="button" class="btn btn-lg fitnessButtons">Update Information</button>
+                    <button type="button" class="btn btn-lg fitnessButtons">Reset Password</button>
+                </div>
+
             </div>
         </div>
+    </div>
         
-        
+    <div class="row">    
         <div class="col-sm-12">
             <div class="well">
                 <h3><span class="fa fa-user"></span> DATA</h3>
@@ -33,7 +52,7 @@
                    
                         {{#each TestLog}}
                         <p>
-                        <strong>Semester</strong>: {{semester}}<br />
+                        <strong>Term</strong>: {{term}}<br />
                         <strong>Test 1</strong>: {{testOne}}<br />
                         <strong>Test 2</strong>: {{testTwo}}<br />
                         <strong>Test 2</strong>: {{testThree}}<br />

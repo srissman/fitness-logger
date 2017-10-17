@@ -3,14 +3,13 @@
     position:relative;
 
     &--menu {
-    	background: $highlight-red;
+    	background: #ffffff;
     }
 }
 
 .header-container {
-	max-width: 1200px;
-	margin:auto;
-	background: $highlight-red;
+	max-width: 1150px;
+	background: $btn-orange;
 }
 
 .menu--sidebar {
@@ -66,7 +65,10 @@
 }
 
 .profile {
-
+	& .menu--item {
+		float: right;
+		margin-right: 80px;
+	}
 	& span {
 		line-height: 40px;
 	}

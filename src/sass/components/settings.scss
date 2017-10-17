@@ -5,6 +5,7 @@ $background-blue: #252839;
 $highlight-blue: #CAEBF2;
 $highlight-red: #FF3B3F;
 $highlight-orange: #f0ad4e;
+$btn-orange: #FC5F2B;
 
 
 //Fonts
@@ -31,12 +32,16 @@ $row-inner-width: rem-calc(1200);
 $row-width: $row-inner-width + $column-gutter;
 
 body {
-	background: $background-blue;
-	color: #ffffff;
+	color: #808080;
 }
 
 .well {
 	background: #333333;
+	color: #ffffff;
+}
+
+* {
+ font-family: 'Hevetica Neue', Helvetica, Arial, sans-serif;
 }
 
 

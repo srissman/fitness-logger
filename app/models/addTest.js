@@ -16,13 +16,13 @@ exports.addInformation = function(information, req) {
 
             if (data) {
             console.log(data);
-
+                var date = new Date();
             	var newData = new fitnessData();
 
             	newData.userId = information.id;
                 newData.name = information.name;
             	newData.createdOn = Date.now();
-            	newData.fitnessData.semester = information.semester;
+            	newData.fitnessData.term = information.term + ' ' + date.getFullYear();
             	newData.fitnessData.testOne = information.test1;
             	newData.fitnessData.testTwo = information.test2;
             	newData.fitnessData.testThree = information.test3;

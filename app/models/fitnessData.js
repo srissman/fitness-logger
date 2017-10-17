@@ -7,7 +7,7 @@ var fitnessDataSchema = mongoose.Schema({
     userId     : String,
     name       : String,
     fitnessData  : {
-    	semester : String,
+    	term : String,
     	testOne	 : String,
     	testTwo	 : Number,
     	testThree: String,
