@@ -29,7 +29,8 @@
     "handlebars": "^4.0.10",
     "method-override": "~1.0.0",
     "mongoose": "latest",
-    "passport": "~0.1.17"
+    "passport": "~0.1.17",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",

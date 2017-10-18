@@ -143,13 +143,15 @@ module.exports = function(app, passport) {
         })
     })
 
-    // app.post('/addtest', isLoggedIn, function(req, res) {
-    //     var addtest  = require('./models/addTest.js');
-    //     addtest.addInformation(req.body);
-    //     res.render('./layouts/tests.handlebars', {
-    //         user : req.user // get the user out of the session and pass to the template
-    //     })
-    // })
+    app.post('/update', isLoggedIn, function(req, res) {
+        console.log("Update function");
+        var update  = require('./models/updateUser.js');
+        update.updateUser(req.body);
+        console.log("Update Finished");
+        res.render('./layouts/updateDetails.handlebars', {
+            user : req.user // get the user out of the session and pass to the template
+        })
+    })
 
     // =====================================
     // RESET PASSWORD ====================

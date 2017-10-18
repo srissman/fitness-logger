@@ -1,45 +1,49 @@
+    <div class="page-header text-center">
+        <h1>Fitness Tests</h1>
+    </div>
 
-<div class="col-sm-6 col-sm-offset-3">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="well">
 
-    <h1><span class="fa fa-sign-in"></span>Tests</h1>
+            <!-- show any messages that come back with authentication -->
+            
 
-    <!-- show any messages that come back with authentication -->
-    
+            <!-- TEST FORM -->
+            <form action="/addtest" method="post">
+                <div class="form-group">
+                    <label>Name</label>
+                    <p>{{user.firstName}} {{user.lastName}}</p>
+                </div>
+                <div class="form-group">
+                  <label for="term">Term:</label>
+                  <select class="form-control selectpicker" id="term" name="term">
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label>Test 1</label>
+                    <input type="text" class="form-control" name="test1">
+                </div>
+                <div class="form-group">
+                    <label>Test 2</label>
+                    <input type="text" class="form-control" name="test2">
+                </div>
+                <div class="form-group">
+                    <label>Test 3</label>
+                    <input type="text" class="form-control" name="test3">
+                </div>
 
-    <!-- TEST FORM -->
-    <form action="/addtest" method="post">
-        <div class="form-group">
-            <label>Name</label>
-            <p>{{user.firstName}} {{user.lastName}}</p>
+                <div class="form-group">
+                    <input type="text" class="hidden" name="id" value="{{user._id}}">
+                    <input type="text" class="hidden" name="name" value="{{user.firstName}} {{user.lastName}}">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-warning btn-lg fitnessButtons">Enter Records</button>
+            </form>
         </div>
-        <div class="form-group">
-          <label for="sel1">Term:</label>
-          <select class="form-control" id="term" name="term">
-            <option>Term 1</option>
-            <option>Term 2</option>
-            <option>Term 3</option>
-            <option>Term 4</option>
-          </select>
-        </div>
-        <div class="form-group">
-            <label>Test 1</label>
-            <input type="text" class="form-control" name="test1">
-        </div>
-        <div class="form-group">
-            <label>Test 2</label>
-            <input type="text" class="form-control" name="test2">
-        </div>
-        <div class="form-group">
-            <label>Test 3</label>
-            <input type="text" class="form-control" name="test3">
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="hidden" name="id" value="{{user._id}}">
-            <input type="text" class="hidden" name="name" value="{{user.firstName}} {{user.lastName}}">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Enter Records</button>
-    </form>
-</div>
+    </div>
 
