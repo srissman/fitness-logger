@@ -12,4 +12,9 @@
 	border: none;
 	border-radius: 20px; 
 	color: #ffffff;
+
+	&:hover {
+		background: #ffffff;
+		color: $btn-orange;
+	}
 }

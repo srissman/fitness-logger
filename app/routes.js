@@ -129,7 +129,47 @@ module.exports = function(app, passport) {
                 loggedIn : loggedIn
             });
         });
-    });
+    })
+
+    // =====================================
+    // UPDATE PERSONAL DETAILS ====================
+    // =====================================
+
+    app.get('/updateDetails', isLoggedIn, function(req, res) {
+        var loggedIn = req.isAuthenticated();
+        res.render('./layouts/updateDetails.handlebars', {
+            user : req.user, // get the user out of the session and pass to the template
+            loggedIn : loggedIn
+        })
+    })
+
+    // app.post('/addtest', isLoggedIn, function(req, res) {
+    //     var addtest  = require('./models/addTest.js');
+    //     addtest.addInformation(req.body);
+    //     res.render('./layouts/tests.handlebars', {
+    //         user : req.user // get the user out of the session and pass to the template
+    //     })
+    // })
+
+    // =====================================
+    // RESET PASSWORD ====================
+    // =====================================
+
+    app.get('/resetPassword', isLoggedIn, function(req, res) {
+        var loggedIn = req.isAuthenticated();
+        res.render('./layouts/resetPassword.handlebars', {
+            user : req.user, // get the user out of the session and pass to the template
+            loggedIn : loggedIn
+        })
+    })
+
+    // app.post('/addtest', isLoggedIn, function(req, res) {
+    //     var addtest  = require('./models/addTest.js');
+    //     addtest.addInformation(req.body);
+    //     res.render('./layouts/tests.handlebars', {
+    //         user : req.user // get the user out of the session and pass to the template
+    //     })
+    // })
 };
 
 // route middleware to make sure a user is logged in

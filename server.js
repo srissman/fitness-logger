@@ -70,7 +70,7 @@ function listening () {
         browserSync({
             files: ['/src/**/*.scss', '/views/*.handlebars', '/dist/**/*.css'],
             online: false,
-            open: true,
+            open: false,
             port: port + 1,
             proxy: 'localhost:' + port,
             ui: false

@@ -13,6 +13,7 @@ var userSchema = mongoose.Schema({
     },
     firstName  : String,
     lastName   : String,
+    age        : Number,
     createdAt	 : Date,
     updatedAt	 : Date,
     lastLoggedIn : Date,

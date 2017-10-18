@@ -30,6 +30,10 @@
 .activeForm {
 			color: #ffffff;
 			border-bottom: 1px solid $btn-orange;
+
+			& h2 {
+				margin-bottom: 5px;
+			}
 		}
 
 .login-form, .signup-form {
